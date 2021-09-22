@@ -18,7 +18,7 @@ public class NumberOfOccurences{
             //check if the element is already visited
             if(visited[i]!=1){
                 for(int j=0;j<n;j++){
-                    if(array[i]==array[j] && visited[j]!=1){
+                    if(array[i]==array[j]){
                         //if found same elements incriment count also set visited of that particular index to 1
                         count+=1;
                         visited[j]=1;

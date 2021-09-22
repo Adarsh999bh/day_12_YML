@@ -3,11 +3,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook{
+    public List<Contact> list=new ArrayList<>();
     public static Scanner sc=new Scanner(System.in); 
     private static void printOptions(){
-        System.out.println("1 : Add Contact\n2 : Edit Contact\n3 : Delete Contact\n4 : Display\n5 : Exit");
+        System.out.println("1 : Add Contact\n2 : Edit Contact\n3 : Delete Contact\n4 : Display\n5 : break");
     }
-    private static Contact getPerson(List<Contact> list,String name){
+    public Contact getPerson(List<Contact> list,String name){
         for(int i=0;i<list.size();i++){
             if(list.get(i).firstName.equals(name)){
                 return list.get(i);
@@ -16,7 +17,7 @@ public class AddressBook{
         return null;
 
     }
-    private static void editContactDetails(Contact person){
+    public static void editContactDetails(Contact person){
         System.out.println("Do you want to edit first name ?");
         if(sc.nextLine().equals("yes")){
             person.firstName=sc.nextLine();
@@ -51,9 +52,7 @@ public class AddressBook{
         }
 
     }
-    public static void main(String[] args) {
-        System.out.println("Welcome to Address Book");
-        List<Contact> list=new ArrayList<>();
+    public void initFunction(){
         int choice;
         while(true){
             printOptions();
@@ -111,7 +110,7 @@ public class AddressBook{
                     break;
                 }
                 case 5:{
-                    System.exit(0);
+                    return;
                 }
             }
 
